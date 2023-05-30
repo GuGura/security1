@@ -1,0 +1,39 @@
+
+server:
+  port: 8090
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: cos
+    password: cos1234
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .mustache
+
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none create로 하면 재실행하면 기존꺼 날라간다.
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 714074832718-fj9kj5uq78ajqcfua9810f1fmbu9qmak.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+            - email
+            - profile
